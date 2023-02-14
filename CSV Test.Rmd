@@ -1,0 +1,40 @@
+---
+title: "CSV Test"
+author: "Biel Altimira"
+date: "2023-02-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de les dades 
+
+```{r}
+presion <- read.csv2("presion.csv")
+names(presion)
+```
+```{r}
+head(presion)
+```
+
+```{r}
+tail(presion)
+```
+## Gràfics
+```{r}
+par(mfrow=c(1, 2))
+hist(presion$PresSis)
+hist(presion$PresDia)
+```
+```{r}
+plot(presion$PresSis, presion$PresDia)
+```
+
+## Escriptura
+```{r}
+save(presion,file="presion.Rdata")
+load(file="presion.Rdata")
+```
+
